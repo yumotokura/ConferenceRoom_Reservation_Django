@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会議予約リスト</title>
+</head>
+<body>
+    <h1>{{ room.name }}の予約一覧</h1>
+    <ul>
+        {% for reservation in reservations %}
+        <li>{{ reservation.reserved_by }}: {{ reservation.start_time }} 〜 {{ reservation.end_time }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_reservation' room.id %}">予約する</a>
+    <a href="{% url 'room_selection' %}">会議室選択に戻る</a>
+</body>
+</html>
